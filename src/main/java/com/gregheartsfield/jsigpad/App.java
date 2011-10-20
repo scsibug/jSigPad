@@ -2,14 +2,15 @@ package com.gregheartsfield.jsigpad;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.awt.Color;
+
 public class App {
     public static void main( String[] args ) {
         // Open test json file
         try {
             String json = readFile("greg.json","UTF-8");
-            System.out.println(json);
-            Signature sig = new Signature(json);
-            sig.parse();
+            Signature sig = new Signature(json, 395, 200);
+            sig.setPenColor(Color.BLUE);
             sig.saveToFile("test.png");
         } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
