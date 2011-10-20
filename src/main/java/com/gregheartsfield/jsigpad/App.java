@@ -10,6 +10,7 @@ public class App {
             System.out.println(json);
             Signature sig = new Signature(json);
             sig.parse();
+            sig.saveToFile("test.png");
         } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }
