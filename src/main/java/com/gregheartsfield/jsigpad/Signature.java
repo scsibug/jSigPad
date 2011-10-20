@@ -48,7 +48,17 @@ class Signature {
         g.setStroke(new BasicStroke(strokeWidth));
         List<Map<String,Integer>> lineObj = mapper.readValue(json, new TypeReference<List<Map<String,Integer>>>() { });
         for (Map<String,Integer> m : lineObj) {
-            g.drawLine(m.get("lx"), m.get("ly"), m.get("mx"), m.get("my"));
+            if (m != null) {
+                Integer x1 = m.get("lx");
+                Integer y1 = m.get("ly");
+                Integer x2 = m.get("mx");
+                Integer y2 = m.get("my");
+                if (x1 != null && y1 != null && x2 != null && y2 != null) {
+                    g.drawLine(x1,y1,x2,y2);
+                } else {
+                    System.err.println("null component(s): ("+x1+","+y1+")->("+x2+","+y2+")");
+                }
+            }
         }
     }
 
