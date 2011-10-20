@@ -31,7 +31,7 @@ class Signature {
         this.json = json;
         this.width = width;
         this.height = height;
-        this.strokeWidth = 1.5f;
+        this.strokeWidth = 2.0f;
         mapper = new ObjectMapper();
     }
 
