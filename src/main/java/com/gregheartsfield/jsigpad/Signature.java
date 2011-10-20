@@ -1,7 +1,9 @@
 package com.gregheartsfield.jsigpad;
 
 import org.codehaus.jackson.map.*;
+import org.codehaus.jackson.type.*;
 import java.util.List;
+import java.util.Map;
 import java.io.IOException;
 
 class Signature {
@@ -11,11 +13,14 @@ class Signature {
         this.json = json;
         mapper = new ObjectMapper();
     }
+
     public void parse() throws IOException {
-        List<Object> lines = mapper.readValue(json, List.class);
-        System.out.println(lines.size() + " lines");
-        for (Object l : lines) {
-            System.out.println(l);
+        List<Map<String,Integer>> lineObj = mapper.readValue(json, new TypeReference<List<Map<String,Integer>>>() { });
+        for (Map m : lineObj) {
+            System.out.println(m.get("lx"));
+            System.out.println(m.get("ly"));
+            System.out.println(m.get("mx"));
+            System.out.println(m.get("my"));
         }
     }
 }
