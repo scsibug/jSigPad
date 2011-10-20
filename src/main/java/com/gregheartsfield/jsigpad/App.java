@@ -8,6 +8,8 @@ public class App {
         try {
             String json = readFile("greg.json","UTF-8");
             System.out.println(json);
+            Signature sig = new Signature(json);
+            sig.parse();
         } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }

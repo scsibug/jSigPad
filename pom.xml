@@ -10,6 +10,14 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    <plugin>
         <!-- NOTE: We don't need a groupId specification because the group is
              org.apache.maven.plugins ...which is assumed by default.
           -->
